@@ -1,0 +1,1812 @@
+/*--------------------------------------------------
+[Main Site Template Stylesheet]
+
+[Table of contents]
+1.0 Headers
+	1.1 Heading Sizes & Semantic Classes
+		1.1.1 Heading Ampersand Pairs
+	1.2 SUA Header
+	1.3 Header Contact Link
+	1.4 SUA Main Navigation
+		1.4.1 Nav Items Default States
+		1.4.2 Nav Hover, Current & Active States
+		1.4.3 Current Tab Hover States
+	1.5 Page Header
+2.0 Breadcrumbs
+	2.1 Quicklinks
+3.0 Main Structure
+4.0 Helper Classes
+5.0 Content
+	5.1 Social Media
+	5.2 Summary Box
+		5.2.1 Summary Box Elements
+	5.3 Icon List
+	5.4 Icon Links
+	5.5 Navigation
+	5.6 Polls
+	5.7 Tenant Hours
+	5.8 Level 1 Styles
+	5.9 Button Classes
+	5.10 Banners
+	5.11 Tables
+		5.11.1 Data Tables
+		5.11.2 Tables in the Contextual (right) Column
+		5.11.3 Hours App Generated Tables (main-content)
+		5.11.4 Fancy Tables (main-content)
+	5.12 Email Sign-up
+	5.13 Definition Lists
+		5.13.1 Table-like Definition Lists
+			5.13.1.1 Nested Definition Lists
+				5.13.1.1.2 Shortened Nested Definition Lists
+	5.14 Lists
+		5.14.1 List Style Defaults
+			5.14.1.1 Special Ordered Lists
+			5.14.1.2 Nested Unordered Lists
+			5.14.1.3 Special Event Calendar Styles
+	5.15 Link Classes, Colors & Pseudo Classes
+		5.15.1 Heading Link Colors & Pseudo Classes
+		5.15.2 Link Icons
+	5.16 Images
+		5.16.1 Image Headings w/ Drop Shadow
+	5.17 Alerts, Messages and Warnings
+		5.17.1 info
+		5.17.2 alert
+		5.17.3 error
+		5.17.4 successful
+	5.18 Delete (strikeout)
+	5.19 Alternate (background)
+	5.20 Stats
+	5.21 Details
+	5.22 Announcements
+6.0 Footers
+	6.1 Page Footer
+		6.1.1 Page Footer Lists
+		6.1.2 Page Footer Links
+	6.2 SUA Footer Wrapper
+	6.3 SUA Footer
+		6.3.1 SUA Social Footer
+
+Author(s):   Kamran Ayub, Tony Thomas
+Version:     1.0.0
+Last change: 11/23/2010
+
+------------------------------------------ */
+
+
+/*-------[1.0 Headers]--------*/
+
+	/*-------[1.1 Heading Sizes & Semantic Classes]--------*/
+	/*
+	* header font-sizes with matching semantic classes.
+	* for example, when an h3 is used structurally, but you want it to look like an h4
+	*/
+
+	#left-nav h3,
+	#contextual h3,
+	#summary h3,
+	h3.banner {
+		font-size: 1.2em;
+	}
+
+		/*-------[1.1.1 Heading Ampersand Pairs]--------*/
+		h2.ampersand-pair {
+			font-size: 2.2em;
+		}
+		h2.ampersand-pair-left {
+			background:url("/images/headers/upcoming-events.jpg") no-repeat scroll -7px top transparent;
+			height:38px;
+			padding-left: 0;
+			text-indent:-999em;
+			width:270px;
+		}
+
+		h2.ampersand-pair-left img {
+			float: none;
+		}
+		h2.ampersand-pair-right {
+			background:url("/images/headers/social-activity.jpg") no-repeat scroll -3px top transparent;
+			height:38px;
+			text-indent:-999em;
+			width:213px;
+		}
+		/* #main-content div has a 20px top margin, so we don't need the top margin for the first h2 */
+		#main-content h2:nth-child(1),
+		#main-content h3:nth-child(1) {
+			margin-top: 0;
+		}
+	/* ----- [1.2 SUA Header] ----- */
+	#sua-header {
+		background: -moz-linear-gradient(left -90deg, #262323, #1a1818);
+		background: -webkit-gradient(linear, top left, bottom left, from(#262323), to(#1a1818));
+		background: #201d1d;
+		display: block;
+		height: 63px;
+		min-height: 0;
+		overflow:hidden;
+		position:absolute;
+		text-align: center;
+		top: 85px;
+		width: 100%;
+		z-index: 3;
+	}
+	#sua-header-wrapper {
+		border-bottom: 1px solid #202020;
+		height: 63px;
+		margin: 0px auto;
+		position: relative;
+		text-align: left;
+		width: 960px; /* 20px padding + 940px = 960 */
+	}
+	#sua-header h1 {
+		/* The H1 now just uses the .accessible class */
+	}
+	#sua-header ul#sua-header-links a#sua-header-home-link {
+		background: url(sua/images/head-foot.png) no-repeat -558px -7px;
+		display: block;
+		height: 40px;
+		left: -960px;
+		position: absolute;
+		text-indent: -9999em;
+		top: -14px;
+		width: 720px;
+	}
+	#sua-header ul#sua-header-links a#sua-header-home-link:hover {
+		background-position: -558px -53px
+	}
+	#sua-header ul#sua-header-links a#sua-header-home-link.coffman_header {
+		background: url(images/coffman-logo.png) no-repeat left center;
+	}
+	#sua-header ul#sua-header-links a#sua-header-home-link.spsc_header {
+		background: url(images/spsc-logo.png) no-repeat left center;
+	}
+	#sua-header ul#sua-header-links a#sua-header-home-link.skyway_header {
+		background: url(images/skyway-logo.png) no-repeat left center;
+	}
+	#sua-header ul#sua-header-links {
+		list-style: none;
+		position: absolute;
+		right: 0;
+		top: 25px;
+	}
+	#sua-header ul#sua-header-links li {
+		float: left;
+		list-style: none outside none;
+		position: relative;
+	}
+	#sua-header ul#sua-header-links li a {
+		/* border-bottom: 1px solid #4b4a4a; */
+		color: #f0d174;
+		text-decoration: none;
+	}
+	#sua-header ul#sua-header-links li a:hover {
+		text-decoration: underline;
+	}
+	/* These might not be in use anymore */
+	div.info-box {
+		float: right;
+		overflow: visible;
+		padding: 0;
+	}
+	div.info-box ul {
+		list-style: none;
+		margin: 0 0 0 10px;
+		padding: 0 0.5em 0 0.5em;
+	}
+	div.info-box ul li {
+		height: 25px;
+		margin: 0 0 1em 0;
+	}
+		div.info-box.coffman ul li {
+			text-indent: 0;
+		}
+	div.info-box #buildings {
+		padding:0pt 10px;
+	}
+
+	/*------[1.3 Header Contact Link]-------*/
+	#sua-header li#header-contact-us {
+		background: url(sua/images/contact-16.png) no-repeat right top;
+		text-align: left;
+	}
+	#sua-header li#header-contact-us a {
+		display: block;
+		padding-right: 23px;
+		border: 0;
+	}
+	/* -----[1.4 SUA Main Navigation]----- */
+	#sua-main-nav {
+		background: #BC7426;
+		background: -moz-linear-gradient(0px 153px -90deg, rgba(255,204,51,0.4), #e3be50);
+		background: -webkit-gradient(linear, left 153, left bottom, from(rgba(255,204,51,0.4)), to(#e3be50));
+		border-top: 1px solid #8f632c;
+		display: block;
+		font-size: 0.85em;
+		height: 63px;
+		padding: 148px 0 0 0;
+		min-height: 0;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		z-index: 1;
+	}
+	#sua-main-nav-wrapper {
+		margin: 0 auto;
+		overflow: visible;
+		position: relative;
+		width: 960px;
+	}
+	#sua-main-nav ul {
+		left: 0;
+		list-style-type: none;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		width: 2000px; /* Set to an arbitrarily long value so li's won't wrap if the user increases text size */
+	}
+	#sua-main-nav ul li {
+		background: #333;
+		background: -moz-radial-gradient(center 0deg, #444, #333);
+		background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, from(#444), to(#333));
+		border-bottom: 1px solid #000;
+		border-left: 1px solid #454545;
+		border-right: 1px solid #212121;
+		-khtml-border-radius: 8px 8px 0 0;
+		-moz-border-radius: 8px 8px 0 0;
+		-webkit-border-top-left-radius: 8px;
+		-webkit-border-top-right-radius: 8px;
+		border-radius: 8px 8px 0 0;
+		border-top: 1px solid #333;
+		float: left;
+		font-weight: bold;
+		height: 56px;
+		margin: 3px 0 0 0;
+		padding:3px 0 0 0;
+		position: relative;
+		text-align: center;
+	}
+	#sua-main-nav ul li a {
+		background-repeat: no-repeat;
+		color:#ccc;
+		display: inline-block;
+		margin: -3px auto 0 auto;
+		padding: 38px 7px 3px 7px;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+	}
+	#sua-main-nav li#nav-home {
+		min-width: 63px; /* 7.75em fills space in FF */
+	}
+
+			/* -----[1.4.1 Nav Items Default States]----- */
+			#sua-main-nav li a {
+				background-image: url(images/main-nav-sprites.png);
+			}
+			#sua-main-nav li#nav-home a				{ background-position: -3.62em 2px; }
+			#sua-main-nav li#nav-entertainment a		{ background-position: -13.5em 2px; }
+			#sua-main-nav li#nav-groups a			{ background-position: -24.6em 2px; }
+			#sua-main-nav li#nav-reserve	a			{ background-position: -36.5em 2px; }
+			#sua-main-nav li#nav-jobs a				{ background-position: -47.2em 2px; }
+			#sua-main-nav li#nav-services a			{ background-position: -60.55em 2px; }
+			#sua-main-nav li#nav-food a				{ background-position: -72.5em 2px; }
+			#sua-main-nav li#nav-deals a				{ background-position: -83.2em 2px; }
+			#sua-main-nav li#nav-lounge a			{ background-position: -95.2em 2px; }
+
+
+				/* ----- [1.4.2 Nav Hover, Current & Active States] ----- */
+				#sua-main-nav ul li a:focus,
+				#sua-main-nav ul li a:hover {
+					border-color:inherit;
+					text-decoration: underline;
+				}
+				#sua-main-nav ul li:hover,
+				#sua-main-nav ul li:active {
+					background: #4c4b4b;
+					background: -moz-radial-gradient(center 0deg, #4c4b4b, #333);
+					background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, from(#4c4b4b), to(#333));
+					border-top: 1px solid #333;
+				}
+				#sua-main-nav ul li.current {
+					background: #fff;
+					border-bottom: 1px solid #fff;
+					border-left: none;
+					border-top: none;
+					-moz-box-shadow: -3px -3px 5px 1px rgba(0,0,0,0.26); /* <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color></color>? */
+					-webkit-box-shadow: -3px -3px 5px 1px rgba(0,0,0,0.26);
+					box-shadow: -3px -3px 5px 1px rgba(0,0,0,0.26);
+					height: 57px;
+				}
+				#sua-main-nav ul li.current a {
+					color: #900021;
+					-moz-box-shadow: none;
+					-webkit-box-shadow: none;
+					box-shadow: none;
+				}
+				#sua-main-nav ul li:hover a,
+				#sua-main-nav ul li:active a,
+				#sua-main-nav ul li a:focus {
+					color:#fff;
+				}
+				#sua-main-nav li#nav-home.current a {
+					background-position: -3.62em -57px;
+				}
+
+				/* ----- [1.4.3 Current Tab Hover States] ----- */
+				#sua-main-nav ul li.current:hover a {
+					color: #900021;
+					text-decoration: underline;
+				}
+
+		/*-------[1.5 Page Header]--------*/
+		/**
+	     * Holds the image to display at the top of the content page
+		 */
+		#page-header {
+			background-color: #ccc;
+			background-position: left top;
+			background-repeat: no-repeat;
+			-moz-border-radius: 0 8px 0 0;
+			-webkit-border-top-right-radius: 8px;
+			border-radius: 0 8px 0 0;
+			height: 216px;
+		}
+
+/* ----- [2.0 Breadcrumbs] ----- */
+#breadcrumb {
+	background: #7d1111;
+	font-size: 0.93em;
+        top: 149px;         /* move past absolutely positioned header */
+	height: 40px;
+        width: 100%;
+        left: 0;
+	position: absolute;
+	z-index: 2 !important;
+}
+#breadcrumbs {
+        font-family: "PT Sans", "Lucida Grande", "Lucida Sans", Lucida, Tahoma, Verdana, Arial, Helvetica, FreeSans, sans-serif;
+	margin: 0 auto;
+	position: relative;
+	width: 960px;
+	z-index: 2 !important;
+        color: white;
+}
+#breadcrumbs p {
+	height: 40px;
+        line-height: 40px;
+}
+#breadcrumbs p i {
+	font-size: 8px;
+        padding: 0 1em;
+}
+#breadcrumbs p a {
+	color: white;
+	text-decoration: none;
+}
+#breadcrumbs p a:focus, #breadcrumbs p a:hover {
+	text-decoration: underline;
+}
+#breadcrumbs ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+
+/*-------[3.0 Main Structure]--------*/
+#content {
+	background: #fff;
+	clear: left;
+	color: #333;
+	display: block;
+	margin-top: 30px;
+	margin: 0 auto;
+	padding: 1em 0 0 0;
+	position: relative;
+        top: 0;
+        bottom: 312px;
+	width: 960px;
+	z-index: 0 !important;
+}
+
+/*-------[4.0 Helper Classes]--------*/
+.column {
+	float: left;
+	margin-right: 2%;
+	width: 48%;
+}
+.column.narrow {
+	margin-right: 5%;
+	width: 30%;
+}
+ul.column.narrow {
+	margin-right: 0;
+	width: 28%; /* make the width a little narrower to account for lists' indentation */
+}
+.column.wide {
+	margin-right: 5%;
+	width: 66%;
+}
+.column.last {
+	margin-left: 2%;
+	margin-right: 0;
+}
+.column.narrow.last {
+	margin-left: 0;
+	margin-right: 0;
+}
+.column.last:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.narrow {
+	width: 33%;
+}
+.wrap {
+	clear: left;
+}
+.clear {
+	clear:both;
+	font-size:1px;
+	height:1px;
+	line-height:0;
+}
+
+/* Adds padding to element */ /* Only use in an emergency. This class may be deleted in the very near future. */
+div.padding {
+	padding: 20px;
+}
+/* Clearfix - Simple
+ * Used for clearing containers of float elements.
+ * Works fine in most situations, see http://www.sitepoint.com/blogs/2005/02/26/simple-clearing-of-floats/
+*/
+.cf, .clearfix {
+    overflow: hidden;
+}
+/* Use if above version won't work */
+.cf-ext:after {
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0.1em;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.micro-cf:before,
+.micro-cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.micro-cf:after {
+    clear: both;
+}
+
+.micro-cf {
+    *zoom: 1;
+}
+
+/*-------[5.0 Content]--------*/
+p,
+address {
+	margin: 0 0 1.5em 0;
+}
+	div.carepack p.description {
+		clear: left;
+	}
+	/*-------[5.1 Social Media]--------*/
+	ul#social-media-list li.social-media-list-item a,
+	#sua-header li#header-contact-us a.hide {
+		border: none;
+		display: block;
+		height: 36px;
+		text-indent: -9999px !important;
+		width: 36px;
+	}
+	ul#social-media-list {
+		height: 36px;
+		position: relative;
+		list-style: none;
+		margin-left: 20px;
+		margin-top: -10px;
+	}
+	li.facebook-heading	{ background: url(sua/images/facebook-36.png) no-repeat; }
+	li.twitter-heading	{ background: url(sua/images/twitter-new-36.png) no-repeat; }
+	li.youtube-heading	{ background: url(sua/images/youtube-36.png) no-repeat; }
+	li.pinterest-heading { background: url(sua/images/pinterest-36.png) no-repeat; }
+	li.flickr-heading	{ background: url(sua/images/flickr.png) no-repeat; }
+	li.rss-heading	{ background: url(sua/images/rss-36.png) no-repeat; }
+	ul#social-media-list li.social-media-list-item.twitter-heading a {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		box-shadow: 1px 1px 1px #eee;
+		height: 32px;
+		padding: 0;
+		width: 32px;
+	}
+	ul#social-media-list li.social-media-list-item {
+		float: left;
+		height:36px;
+		margin: 0;
+		padding: 0 10px 0 0;
+		width:36px;
+	}
+	ul#social-media-list li.social-media-list-item a.hide:hover { border: none; }
+
+	/*-------[5.2 Summary Box]--------*/
+	#summary {
+		background: #333;
+		background: -moz-radial-gradient(center 0deg, #444, #333);
+		background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, from(#444), to(#333));
+		display: block;
+		float: right;
+		height: 145px;
+		min-height: 0;
+		padding: 20px 0 0 0;
+		position: absolute;
+		right: 0;
+		width: 240px;
+		z-index: 0 !important;
+	}
+		/*-------[5.2.1 Summary Box Elements]--------*/
+		#summary p {
+			padding: 0 1em 1em 20px;
+			color:#fff;
+		}
+
+	/*-------[5.3 Icon List]--------*/
+	ul.icons li {
+		background-repeat: no-repeat;
+		background-position: left center;
+		padding: 2px 0 2px 25px;
+	}
+
+	/*-------[5.4 Icon Links]--------*/
+	a.calendar-link, a.rss-link {
+		display: inline-block;
+		height: 16px;
+		width: 16px;
+	}
+	a.calendar-link { background: url(images/icons/calendar.png) no-repeat; }
+	a.rss-link 		{ background: url(images/icons/rss.png) no-repeat; }
+
+	/*-------[5.5 Navigation]-------*/
+	/*
+	#left-nav {
+		background: #ebebeb;
+		float: left;
+		min-height: 236px;
+		padding: 0;
+		position: relative;
+		width: 240px;
+		z-index: 1;
+	}
+		#left-nav h3 {
+			background: url(images/ribbon-left.png) top left no-repeat;
+			margin: 20px 0 0 -9px;
+			overflow: visible;
+			padding: 8px 0 14px 9px;
+			position: relative;
+		}
+		#left-nav ul {
+			list-style-type: none;
+			margin: 0 1em 2em 1em;
+			padding: 0 10px 0 10px;
+		}
+			#left-nav ul li {
+				margin: 0 0 0.5em 0;
+			}
+			#left-nav ul li a {
+				-moz-border-radius:8px 0 0 8px;
+				-webkit-border-radius:8px 0 0 8px;
+				border-radius:8px 0 0 8px;
+				display: inline-block;
+				padding: 0.2em 0 0.2em 0.5em;
+				width:210px;
+			}
+				#left-nav ul ul li a {
+					width: 187px;
+				}
+			#left-nav ul li a.external {
+				display: inline;
+				margin-left: 7px;
+				padding: 0.2em 15px 0.2em 0;
+			}
+			#left-nav ul li.current,
+			#left-nav ul li a.current {
+				-moz-box-shadow:-2px 1px 1px #B0B0B0;
+				-webkit-box-shadow:-2px 1px 1px #B0B0B0;
+				background-color: #FFFFFF;
+				border-bottom:1px solid #DEDEDE;
+				border-left:1px solid #DEDEDE;
+				border-top:1px solid #DEDEDE;
+			}
+			#left-nav ul li.current a:focus {
+				background: none;
+			}
+				#left-nav ul ul {
+					margin-top: 0;
+					padding-top: 0;
+				}
+
+	*/
+	#left-nav {
+		background: #ebebeb;
+		float: left;
+		min-height: 100%;
+        margin: 0;
+		padding: 0;
+		position: relative;
+        z-index: 1;
+		width: 240px;
+	}
+	#left-nav h3 {
+		background: #ffce34;
+                font-family: 'PT Sans';
+                font-weight: bold;
+                border: 1px solid #808080;
+		margin: 20px 20px 10px -9px;
+		overflow: visible;
+		padding: 8px 0 8px 9px;
+		position: relative;
+	}
+	#left-nav h3:before {
+            content: "";
+            position: absolute;
+            border-color: transparent #808080 transparent transparent;
+            border-width: 0 9px 9px 0;
+            border-style: solid;
+            left: -1px;
+            bottom: -9px;
+        }
+	#left-nav h3:after {
+            content: "";
+            position: absolute;
+            border-color: transparent #ffce34 transparent transparent;
+            border-width: 0 6px 6px 0;
+            border-style: solid;
+            left: 1px;
+            bottom: -7px;
+        }
+	#left-nav ul {
+	    border-bottom: 1px solid #EBEBEB;
+	    border-top: 1px solid #EBEBEB;
+	    list-style-type: none;
+	    margin: 0 0 2em;
+	    padding: 0;
+	}
+	#left-nav ul li {
+	    background: #EBEBEB;
+	    border-bottom: 1px solid #EBEBEB;
+		border-top: 1px solid #EBEBEB;
+	    margin: 0;
+		position: relative;
+	}
+
+	#left-nav ul li a {
+            color: black;
+            font-family: 'PT Sans';
+	    display: block;
+	    padding: 5px 0 5px 30px;
+	    text-decoration: none;
+	    width: 210px;
+	}
+        #left-nav ul li a:visited {
+            color: #555;
+        }
+	#left-nav ul li.current a,
+	#left-nav ul li a.current {
+		background-color: #FFFFFF;
+	    border-bottom: 1px solid #C1C1C1;
+	    border-top: 1px solid #C1C1C1;
+	    color: #000000;
+	    font-weight: bold;
+	}
+	#left-nav ul ul li {
+		text-indent: 2em;
+	}
+	#left-nav ul ul li a {
+		padding-left: 4.4em;
+		padding-right: 20px;
+		text-indent: 0;
+		width: 163px;
+	}
+	#left-nav ul li a:hover {
+		background: #e3e3e3;
+		color: #000;
+	}
+		#left-nav ul li.current a:hover,
+		#left-nav ul li a.current:hover {
+			background: #fff;
+		}
+	#left-nav ul li a.external {
+		background: none;
+	}
+	#left-nav ul li a.external:after {
+		content: " " url("/images/icons/link_outside.gif");
+	}
+	#left-nav ul li a:hover.external {
+		background-color: #e3e3e3;
+	}
+	#left-nav input.contact {
+		/* margin: 2em 0 0 30px; */
+		margin: 2em auto 0 auto;
+	}
+
+	/*-------[5.6 Polls]--------*/
+	.pollbar {
+		border-left: 1px solid #184270;
+		padding-left: 1ex;
+	}
+
+	/*-------[5.7 Tenant Hours]--------*/
+	div.hours h4 {
+		border-bottom: 1px solid #ccc;
+	}
+	div.hours h5 {
+		margin: 0;
+	}
+	div.hours dl {
+		margin: 0 0 1.5em 1em;
+	}
+	div.hours dt {
+		font-weight: bold;
+	}
+	div.hours dd {
+		color: #6c6c6c;
+		margin-bottom: 0.5em;
+	}
+	div.hours .hours-notes {
+		color: #6c6c6c;
+		font-style: italic;
+	}
+
+	/*-------[5.8 Level 1 Styles]-------*/
+	#main-content {
+                background: white;
+		display: block;
+                height: 100%;
+		float: left;
+		min-height: 0;
+		padding: 20px;
+		width: 680px;
+		z-index: 0 !important;
+	}
+        #main-content.wide {
+                width: 720px;
+        }
+	div.feature h3 {
+		margin: 1em 0 0.2em 0;
+	}
+	#page-head {
+		clear: both;
+		display:none;
+		margin: 20px auto 0 auto;
+		text-align: left;
+		width: 960px;
+	}
+
+	/*-------[5.9 Button Classes]-------*/
+	div.buttons {
+		display: block;
+		height: 28px;
+		margin: -10px 0 50px 0;
+	}
+	.buttons a, .buttons a:link {
+		background-position: left top;
+		background-repeat: no-repeat;
+		display: block;
+		font-weight: bold;
+		padding: 6px 0 7px 28px;
+		text-decoration: none;
+	}
+	.buttons dd a, .buttons dd a:link {
+		background: none;
+		color: #990000;
+		display: inline;
+		font-weight: normal;
+		padding: 0;
+		text-decoration: underline;
+	}
+	.buttons dd a:visited { color: #660000 }
+	.buttons dd a:hover { color: #A1410D }
+	.buttons dd a:active { color: black }
+	a.prev, a.prev:link, a.next, a.next:link {
+		background-position: left;
+		width: 175px;
+	}
+	a.next, a.next:link {
+		background-image: url(/images/groups/next.gif);
+		background-position: right;
+		float: right;
+		text-align: right;
+		padding: 6px 28px 7px 0;
+	}
+	a.prev, a.prev:link {
+		background-image: url(/images/groups/previous.gif);
+		float: left;
+	}
+
+	a.prev:hover { background-position: left; }
+	a.next:hover { background-position: right; }
+
+	#left-nav input.contact,
+	#left-nav input.button,
+	#sign-up input.contact {
+		background: #821319;
+		background: -moz-linear-gradient(left -90deg, #821319, #9a1b2e);
+		background: -webkit-gradient(linear, top left, bottom left, from(#821319), to(#9a1b2e));
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		border:none;
+		-moz-box-shadow: -3px 0 3px rgba(0,0,0,0.4);
+		-webkit-box-shadow: -3px 0 3px rgba(0,0,0,0.4);
+		box-shadow: -3px 0 3px rgba(0,0,0,0.4);
+		color:#fff;
+		cursor: pointer;
+		display: block;
+		margin: 0 0 0 30px;
+		padding:3px;
+	}
+	#sign-up input.contact {
+		margin-left: 1em;
+	}
+	#left-nav input.button {
+		margin-left: 4px;
+		padding: 0.4em;
+	}
+
+	/*-------[5.10 Banners]-------*/
+	.banner {
+		background: #ffce34;
+                font-family: 'PT Sans';
+                font-weight: bold;
+                border: 1px solid #808080;
+		overflow: visible;
+	}
+	.banner:before {
+            content: "";
+            position: absolute;
+            border-color: #808080 transparent transparent transparent;
+            border-width: 9px 9px 0 0;
+            border-style: solid;
+            right: -1px;
+            bottom: -9px;
+        }
+	.banner:after {
+            content: "";
+            position: absolute;
+            border-color: #ffce34 transparent transparent transparent;
+            border-width: 6px 6px 0 0;
+            border-style: solid;
+            right: 1px;
+            bottom: -7px;
+        }
+	#contextual h3.banner,
+	#summary h3.banner,
+	#home-info h3.banner {
+		margin: 0 -9px 10px 20px;
+		padding: 8px 0 8px 20px;
+		position: relative;
+	}
+	h2.banner,
+	h3.banner,
+	h4.banner {
+		padding: 10px;
+	}
+
+	/*-------[5.11 Tables]-------*/
+	table {
+		margin-bottom: 2em;
+	}
+	table caption {
+		padding: 1em 0 1em 0;
+	}
+	table th {
+		font-weight: bold;
+	}
+		/*-------[5.11.1 Data Tables]-------*/
+		table.data,
+		#contextual table {
+		    background: #edf6fb;
+		    border-collapse: collapse;
+		    border: 1px solid #acb7be;
+		    color: #124;
+		    margin: 0.5em 0 1.5em 0;
+		    width: 100%;
+		}
+		#contextual table tr.odd,
+		table.data tr.odd,
+		table.data tr:nth-child(odd) { /* this works if you have a header row */
+			background: #d0dbe1;
+		}
+		#contextual table tr.even,
+		table.data tr.even,
+		table.data tr:nth-child(even) {
+			background: #edf6fb;
+		}
+		#contextual table th,
+		table.data th {
+		    background: #90a0a9;
+		    border-right: 1px solid #acb7be;
+		    color: #fff;
+		    padding: 5px 4px;
+		    text-align: left;
+		}
+		#contextual table td,
+		table.data td {
+		    border-top: 1px solid #acb7be;
+		    padding: 5px;
+		}
+		table.data td.location_information {
+			text-align:right;
+		}
+
+			/*-------[5.11.2 Tables in the Contextual (right) Column]-------*/
+			/* These styles borrow heavily from the existing data styles borrow heavily from the .data styles. Look there for more. */
+			#contextual table {
+				float: right;
+				margin-right: 4%;
+				width: 90%;
+			}
+
+			/*-------[5.11.3 Hours App Generated Tables (main-content)]-------*/
+			#main-content table.hours-app {
+				border: 1px solid #eee;
+				width: 100%;
+			}
+				#main-content table.hours-app tr.even {
+					background: #eee;
+				}
+			#main-content table.hours-app th,
+			#main-content table.hours-app td {
+				padding: 0.3em;
+			}
+			#main-content table.hours-app th {
+				background: #C5D6DF;
+				font-family: "PT Sans", sans-serif;
+				font-size: 1.2em;
+				font-weight: normal;
+			}
+			#main-content table.hours-app td {
+				border-bottom: #3AA5A5;
+				border-top: #3AA5A5;
+			}
+
+			/*-------[5.11.4 Fancy Tables (main-content)]-------*/
+			#main-content table.fancy {
+				border-collapse: collapse;
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				border-top: 1px solid black;
+				width: 100%;
+			}
+			#main-content table.fancy td,
+			#main-content table.fancy th {
+				border-collapse: collapse;
+				border-bottom: 1px solid black;
+				padding: 0.5em;
+			}
+			#main-content table.fancy th {
+				background: #666;
+				color: #fff;
+				font-size: 1.1em;
+			}
+			#main-content table.fancy td img {
+				display: block;
+				float: none;
+				margin: auto;
+			}
+			#main-content table.fancy tr:hover,
+			#main-content table.fancy tr:nth-child(even):hover {
+				background: #EED998;
+			}
+			#main-content table.fancy tr:nth-child(even) {
+				background: #eee;
+			}
+
+	/*-------[5.12 Email Sign-up]-------*/
+	#sign-up div.email-input {
+		float: left;
+		position: relative;
+	}
+	#sign-up label.labelover {
+		color: #666;
+		cursor: text;
+		left: 5px;
+		position: absolute;
+		top: 2px;
+	}
+	#sign-up input#email { /* Review -> form class will have different ids */
+		width: 180px;
+	}
+
+	/*-------[5.13 Definition Lists]-------*/
+	dl {
+		margin: 0 20px 20px 0;
+	}
+	dd, dt {
+		position: relative;
+		z-index: 999;
+	}
+	dt {
+		font-weight: bold;
+		margin: 0.4em 0 0.4em 0;
+	}
+	dd {
+		margin: 0 0 0 1em;
+	}
+
+		/*-------[5.13.1 Table-like Definition Lists]-------*/
+		dl.data {
+			margin-bottom: 20px;
+			display: block;
+			clear: both;
+			width: 100%;
+		}
+		dl.data dt,
+		dl.data dd {
+
+		}
+		dl.data,
+		dl.data dl {
+			margin: 1em 0 20px 0;
+			padding: 0;
+		}
+		dl.data dt,
+		dl.data dl dd {
+			margin: 0;
+			padding: 0.3em 0 0.3em 0;
+		}
+		dl.data dt {
+			clear: left;
+			float: left;
+			width: 25%;
+		}
+		dl.data dt.heading {
+			color: #900021;
+			clear: both;
+			font-family: "PT Sans", sans-serif;
+			font-size: 1.4em;
+			font-weight: normal;
+			width: 100%;
+		}
+		dl.data dl dd {
+			float: left;
+			width: 75%;
+		}
+		dl.data dd {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+		dl.data dl dt,
+		dl.data dl dd {
+			border-top: 1px solid #999;
+		}
+		dl.data dl dt.last,
+		dl.data dl dd.last {
+			margin-bottom: 20px;
+		}
+			dl.data.narrow dl dt {
+				width: 30%;
+			}
+			dl.data.narrow dl dd {
+				width: 70%;
+			}
+				/*-------[5.13.1.1 Nested Definition Lists]-------*/
+				dl.data dl dl dt {
+					margin-bottom: 0;
+				}
+				dl.data dl dl dd {
+					margin-bottom: 0.3em;
+				}
+				dl.data dl dl dd,
+				dl.data dl dl dt {
+					border-top: none;
+					float: none;
+					padding: 0;
+					width: 100%;
+				}
+				dl.data dl dl dd {
+					margin-left: 2em;
+				}
+					/*-------[5.13.1.1.2 Shortened Nested Definition Lists]-------*/
+					dl.data dl.shorten {
+						clear: left;
+						margin: 0 0 0 -20px;
+					}
+					dl.data dl.shorten dd,
+					dl.data dl.shorten dt {
+						float: left;
+						margin: 0 0 0 0;
+						width: 25%;
+					}
+					dl.data dl.shorten dt {
+						font-weight: normal;
+						margin: 0 1em 0 0;
+						text-align: right;
+					}
+					dl.data dl.shorten dt:after {
+						content: ":";
+					}
+
+	/*-------[5.14 Lists]-------*/
+	.wrapper ul,
+	.wrapper ol {
+		list-style-position: outside;
+		/* margin: 0 0 0 2em; */
+		margin: 0 20px 20px 2em;
+	}
+	.wrapper li {
+		margin: 0.4em 0;
+	}
+	.wrapper li ul,
+	.wrapper li ol {
+		margin: 0 0 0 2.5em;
+	}
+	.wrapper ul.img,
+	.wrapper ol.img {
+		list-style-position: inside;
+	}
+		#spotlight li {
+			margin: 0;
+		}
+
+		/*-------[5.14.1 List Style Defaults]-------*/
+		#main-content ul {
+			list-style: disc;
+			padding: 0;
+		}
+		#main-content ol {
+			list-style: decimal;
+			padding: 0;
+		}
+
+			/*-------[5.14.1.1 Special Ordered Lists]-------*/
+			#main-content ol.alpha {
+				list-style: upper-alpha;
+			}
+			#main-content ol.alpha.lower {
+				list-style: lower-alpha;
+			}
+			#main-content ol.long {
+				list-style: decimal-leading-zero;
+				margin-left: 2.5em;
+			}
+			#main-content ol.roman {
+				list-style: upper-roman;
+			}
+			#main-content ol.roman.lower {
+				list-style: lower-roman;
+			}
+
+			/*-------[5.14.1.2 Nested Unordered Lists]-------*/
+			#main-content ul ul {
+				list-style: circle;
+			}
+			#main-content ul ul ul {
+				list-style: square;
+			}
+
+			/*-------[5.14.1.3 Special Event Calendar Styles]-------*/
+			#events ul.events {
+				margin-left: 0;
+				margin-right: 0;
+			}
+			#events ul.events li.event {
+				margin-left:0;
+			}
+
+			#events ul.events li.event a {
+			    display: block;
+			    padding: 0.25em 0 0.25em 0;
+			}
+		/*-------[5.15.2 Link Icons]-------*/
+
+		#main-content ul.downloads {
+			list-style-type: none;
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+		ul.downloads li { margin-bottom: 7px; }
+		/* These can be dangerous when a link wraps to a new line, so be careful */
+		a.download-pdf,
+		a[href$=".pdf"] {
+		    padding: 2px 0 2px 20px;
+		    background: url(/images/icons/link_pdf.gif) top left no-repeat;
+		}
+		a.plain {
+			background: none;
+			padding: 0;
+			}
+		a.download-doc,
+		a[href$=".doc"],
+		a[href$=".docx"] {
+		    padding: 2px 0 2px 20px;
+		    background: url(/images/icons/link_doc.gif) top left no-repeat;
+		}
+		a.download-xls,
+		a[href$=".xls"] {
+		    padding: 2px 0 2px 20px;
+		    background: url(/images/icons/link_xls.gif) top left no-repeat;
+		}
+		a.download-cal,
+		.ical-feed a {
+		    padding: 2px 0 2px 20px;
+		    background: url(/images/icons/link_cal.gif) top left no-repeat;
+		}
+		a.directions {
+		    padding: 2px 0 2px 22px;
+		    background: url(/images/icons/link_directions.gif) top left no-repeat;
+		}
+		a.arrow,
+		a.arrow:link {
+		    background: url(/images/icons/link_arrow.gif) top left no-repeat;
+		    padding: 0 0 0 20px;
+		}
+		a.arrow:hover {
+		    background-position: bottom left;
+		}
+		a.backarrow,
+		a.backarrow:link {
+		    background: url(/images/icons/link_backarrow.gif) top left no-repeat;
+		    padding: 0 0 0 20px;
+		}
+		a.backarrow:hover {
+		    background-position: bottom left;
+		}
+		a.outside, a.external { /* For all links leaving our site */
+		    background: url(/images/icons/link_outside.gif) no-repeat right center;
+		    padding-right: 15px;
+		}
+		a.outside {
+			display:inline-block; /* fixes extra space in link when inline */
+		}
+		a.outside span { /* For screen readers */
+			position:absolute;
+			overflow:hidden;
+			width:1px;
+			height:1px;
+			left:-9000px;
+			top:-9000px;
+		}
+		a.form,
+		a.form:link {
+		    background: url(/images/icons/link_form.gif) center left no-repeat;
+		    padding: 0 0 0 16px;
+		    margin-left: 10px;
+		}
+		a.no-icon {
+			background: none;
+			padding: 0;
+		}
+		p.form-link {
+		    background: #deeec1;
+		    padding: 5px 10px;
+		    font-size: 1.1em;
+		    font-weight: bold;
+		}
+		p.form-link a,
+		p.form-link a:link {
+		    background: url(/images/icons/link_form.gif) center left no-repeat;
+		    padding: 0 0 0 18px;
+		}
+		.ical-feed {
+		  list-style-type: none;
+		  padding-top: 5px;
+		  padding-bottom: 5px;
+		}
+		.rss-feed {
+		    line-height: 18px;
+		    list-style-type: none;
+		}
+		.rss-feed a,
+		a.download-rss {
+			background:url("/images/icons/rss.gif") no-repeat scroll left center transparent;
+			padding:2px 0 2px 22px;
+		}
+		a.download-rss {
+		    padding: 2px 0 2px 22px;
+		    background: url(/images/icons/rss.gif) center left no-repeat;
+		}
+	/*-------[5.16 Images]-------*/
+	img {
+		float: left;
+		margin-bottom: 20px;
+		margin-right: 20px;
+	}
+	a img {
+		border:none;
+	}
+		/*-------[5.16.1 Image Headings w/ Drop Shadow]-------*/
+		img.heading {
+			-webkit-box-shadow: -1px 1px 3px #000000;
+			-moz-box-shadow: -1px 1px 3px #000000;
+			box-shadow: -1px 1px 3px #000000;
+			margin-bottom: 1em;
+		}
+
+	/*-------[5.17 Alerts, Messages and Warnings]-------*/
+	.message,
+	p.warning, div.error, div.errors, ul.errors, div.success /* backwards-compatibility */
+	{
+		background: #d0dbe1;
+		border: 1px solid #a0b8c6;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		color: #3a3f42;
+		display: block;
+		padding: 1em;
+	}
+	div.message,
+	div.errors, ul.errors, div.success /* backwards compat */
+	{
+		padding: 1em 1em 0 1em;
+	}
+	/* Bigger styles - generic */
+	div.message p, div.message ul, div.message ol, div.message dl, div.message table,
+	div.errors p, div.errors ul, div.errors ol, div.errors dl, div.errors table, ul.errors,		/* backwards compat */
+	div.success p, div.success ul, div.success ol, div.success dl, div.success table	/* backwards compat */
+	{
+		margin: 0 1em 1em 1em; /* instead of having a div with padding */
+	}
+	div.message ol, div.message ul,
+	div.errors ol, div.errors ul, ul.errors,		/* backwards compat */
+	div.success ol, div.success ul 					/* backwards compat */
+	{
+		margin-left: 3em; /* extra spacing on left */
+	}
+	div.message ul li,
+	div.errors ul li, ul.errors li,
+	div.success ul li {
+		margin-bottom: 0.5em;
+	}
+	div.message h2,
+	div.message h3,
+	div.message h4 {
+		color: #184270;
+	}
+
+	div.message h1,
+	div.message h2,
+	div.message h3,
+	/* backwards compat */
+	div.errors h3,
+	div.errors h4,
+	div.success h3 {
+		margin: 0 0 12px 0;
+		font-weight:bold;
+		line-height: 100%;
+		padding: 12px 10px 5px 42px;
+		height:35px;
+		text-transform: none;
+	}
+		/*-------[5.17.1 info]-------*/
+		.message.info {
+			background: #d0dbe1 url(/images/icons/icon-info.png) no-repeat 12px center; /* famfamfam silk icons */
+			padding-left: 40px;
+		}
+		div.message.info {
+			font-size:1.1em;
+			margin: 0 0 2em 0;
+			padding: 0;
+			background: #d0dbe1;
+		}
+		div.message.info h1,
+		div.message.info h2,
+		div.message.info h3 {
+			background: #e5ebee url(/images/icons/icon-info-big.png) no-repeat 4px center;
+		}
+		div.message.info ul li {
+			font-style:italic;
+		}
+
+		/*-------[5.17.2 alert]-------*/
+		.message.alert,
+		p.warning /* backwards compat */
+		{
+			color: #744c1d;
+			border-color: #af9b54;
+			background: #fbe864 url(/images/icons/icon-warning.png) no-repeat 12px center; /* famfamfam silk icons */
+			padding-left:40px;
+			font-weight: bold;
+		}
+		.message.alert h1,
+		.message.alert h2,
+		.message.alert h3,
+		.message.alert h4,
+		.message.alert h5 {
+			color: #c5550b;
+		}
+		div.message.alert {
+			font-size:1.1em;
+			padding: 0 0 0 0;
+			background: #fbe864 url(/images/icons/icon-shading-yellow.png) repeat-x;
+		}
+		div.message.alert h1,
+		div.message.alert h2,
+		div.message.alert h3 {
+			background: url(/images/icons/icon-warning-big.png) no-repeat 4px center;
+		}
+
+		/*-------[5.17.3 error]-------*/
+		.message.error {
+			background: #f6c1c1 url(/images/icons/icon-error.png) no-repeat 12px center; /* famfamfam silk icons */
+			border-color: #b38989 !important; /* remove !important once div.error rule is deprecated */
+			padding-left: 40px;
+			font-weight: bold;
+		}
+		.message.error h1,
+		.message.error h2,
+		.message.error h3,
+		.message.error h4,
+		.message.error h5,
+		.message.error h6,
+		/* backwards compat */
+		div.errors h1,
+		div.errors h2,
+		div.errors h3,
+		div.errors h4,
+		div.errors h5,
+		div.errors h6 {
+			color:#c11e1e;
+		}
+		div.message.error, div.errors, ul.errors {
+			font-size:1.1em;
+			padding: 0 0 0 0;
+			background: #f6c1c1 url(/images/icons/icon-shading-red.png) repeat-x;
+		}
+		div.message.error h1,
+		div.message.error h2,
+		div.message.error h3,
+		/* backwards compat */
+		div.errors h1,
+		div.errors h2,
+		div.errors h3 {
+			background: url(/images/icons/icon-error-big.png) no-repeat 4px center;
+		}
+		div.message.error ul,
+		div.errors ul, ul.errors /* backwards compat */
+		{
+			list-style-image: url(/images/icons/icon-bullet-red.png);
+		}
+		div.message.error ul li,
+		div.errors ul li, ul.errors li /* backwards compat */
+		{
+			font-style:italic;
+			color: #c11e1e;
+		}
+		/* Necessary to fix backwards compat of ul.errors (vs div.errors ul) */
+		ul.errors {
+			background-image: none;
+			padding-left: 30px;
+		}
+
+		/*-------[5.17.4 successful]-------*/
+		.message.successful,
+		div.success /* backwards compat */
+		{
+			background: #c2ee9a url(/images/icons/icon-success.png) no-repeat 12px center; /* famfamfam silk icons */
+			color: #2c4911;
+			border-color: #74905b;
+			padding-left: 40px;
+			font-weight: bold;
+		}
+		.message.successful h1,
+		.message.successful h2,
+		.message.successful h3,
+		.message.successful h4,
+		.message.successful h5,
+		.message.successful h6,
+		/* backwards compat */
+		div.success h1,
+		div.success h2,
+		div.success h3,
+		div.success h4,
+		div.success h5,
+		div.success h6 {
+			color:#489600;
+		}
+		div.message.successful,
+		div.success /* backwards compat */
+		{
+			font-size:1.1em;
+			padding: 0 0 0 0;
+			background: #c2ee9a;
+		}
+		div.message.successful h1,
+		div.message.successful h2,
+		div.message.successful h3,
+		/* backwards compat */
+		div.success h1,
+		div.success h2,
+		div.success h3 {
+			background: #E4FAC8 url(/images/icons/icon-success-big.png) no-repeat 4px center;
+		}
+		div.message.successful ul,
+		div.success ul /* backwards compat */
+		{
+			list-style-image: url(/images/icons/icon-bullet-green.png);
+		}
+		.message.info {
+
+		}
+		.message.warning {
+			background: url(images/icons/icon-warning-big.png) 10px center no-repeat #FBE864;
+			border: 2px solid #744C1D;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			font-weight: bold;
+			padding-left: 46px;
+		}
+		.notice {
+			-moz-border-radius:5px 5px 5px 5px;
+			-webkit-border-radius:5px 5px 5px 5px;
+			border-radius:5px 5px 5px 5px;
+			background:none repeat scroll 0 0 #d0dbe1;
+			border:1px solid #113D55;
+			margin:1em auto;
+			padding:1em;
+			width: 90%;
+		}
+		.highlight {
+			background: #ffff88; /* old browsers */
+			background: -moz-linear-gradient(top, #ffff88 0%, #FCF8C4 47%, #FFFF88 100%); /* firefox */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffff88), color-stop(47%,#FCF8C4), color-stop(100%,#FFFF88)); /* webkit */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#FFFF88',GradientType=0 ); /* ie */
+		}
+
+	/*-------[5.18 Delete (strikeout) ]-------*/
+	del {
+	    text-decoration: line-through;
+	    color: red;
+	}
+
+	/*-------[5.19 Alternate (background) ]-------*/
+	.alternate {
+		background: #E6E4E4;
+		margin: 1em 0;
+		padding: 1em;
+	}
+
+	/*-------[5.20 Stats ]-------*/
+	.stats {
+	    border-top: 1px solid green;
+	    border-bottom: 1px solid green;
+	    background: #DFD url(/images/icons/form_ok.jpg) left center no-repeat;
+	    margin: 10px 50px;
+	    padding: 5px 64px;
+	    color: #090;
+	}
+
+	/*-------[5.21 Details ]-------*/
+	.details, small {
+		font-size: 0.8em;
+		font-weight: normal;
+	}
+	/*-------[5.22 Announcements ]-------*/
+	#announcements {
+		background-color: #eee !important;
+		margin-bottom: 25px !important;
+		padding: 10px !important;
+	}
+	#announcements img {
+		margin: -25px 0 10px 10px;
+		float: right;
+	}
+/*-------[6.0 Footers]-------*/
+
+	/*-------[6.1 Page Footer]-------*/
+	#page-footer {
+		background: #fff;
+		border-top: 1px solid #ECE0B4;
+		clear: left;
+		display: block;
+		min-height: 0;
+		margin: 0 auto;
+		padding: 1em 0 2em 20px;
+		width: 940px;
+	}
+
+		/*-------[6.1.1 Page Footer Lists]-------*/
+		#page-footer ul {
+			float: left;
+			list-style:none;
+			margin: 0;
+			min-height: 3em;
+			width: auto;
+		}
+		#page-footer ul li {
+			font-size: 0.9em;
+			float: left;
+			width: 184px;
+		}
+		#page-footer ul li ul li,
+		#page-footer ul li#about-links li {
+			float:none;
+		}
+		#page-footer ul li#about-links {
+			float: none;
+		}
+
+		/*-------[6.1.2 Page Footer Links]-------*/
+		#page-footer a {
+			color: #000;
+		}
+		#page-footer a:active {
+			color: #000;
+			text-decoration: none;
+		}
+		#page-footer a:focus {
+			background: #E7C297;
+		}
+		#page-footer a:focus:active {
+			background: none;
+		}
+		#page-footer a:hover {
+			color: #000;
+			text-decoration: none;
+		}
+		#page-footer a:visited {
+			color: #000;
+			text-decoration: none;
+		}
+		#page-footer a:visited:hover {
+			text-decoration: underline;
+		}
+	/*-------[6.2 SUA Footer Wrapper]-------*/
+	#sua-footer-wrapper {
+		margin: 0 auto;
+		padding: 10px;
+		text-align: left;
+		width: 960px;
+	}
+	/*-------[6.3 SUA Footer]-------*/
+	#sua-footer {
+		background: #201d1d;
+		background: -moz-linear-gradient(left -90deg, #262323, #1a1818);
+		background: -webkit-gradient(linear, top left, bottom left, from(#262323), to(#1a1818));
+		-moz-box-shadow: -15px -5px 15px rgba(0,0,0,0.4);
+		-webkit-box-shadow: -15px -5px 15px rgba(0,0,0,0.4);
+		box-shadow: -15px -5px 15px rgba(0,0,0,0.4);
+		/* Makes sure box shadow appears above content */
+		display: block;
+		min-height: 0;
+		padding: 0 0 0.5em;
+		position: relative;
+		z-index: 5;
+	}
+	#sua-footer-left {
+		float: left;
+		width: 240px;
+	}
+	#sua-footer div.unit {
+		height: 51px;
+		margin: 0 0 10px 0;
+		width: 202px;
+	}
+	#sua-footer div.unit a {
+		background: url(sua/images/head-foot.png) no-repeat 0 -12px;
+		display: block;
+		height: 61px;
+		text-indent: -999em;
+		width: 202px;
+	}
+	#sua-footer div.unit a:hover {
+		background-position: 0 -87px;
+	}
+	#sua-footer #sua-footer-left ul {
+		font-size: 0.8em;
+		list-style: none;
+	}
+	#sua-footer ul#sua-footer-nav {
+		list-style-type: none;
+	}
+	#sua-footer ul#sua-footer-nav li {
+		background: url(sua/images/footer-nav-bullet.png) no-repeat left center;
+		padding-left: 10px;
+	}
+	#sua-footer #sua-footer-left li a {
+		border-bottom: 1px solid #4b4a4a;
+		color: #f0d174;
+		text-decoration: none;
+	}
+	#sua-footer #sua-footer-left li a:hover, #sua-footer #sua-footer-left li a:focus {
+		border-color: #777;
+	}
+	#sua-footer-right {
+		float: right;
+		text-align: center;
+		width: 247px;
+	}
+		/*-------[6.3.1 SUA Social Footer]-------*/
+		#sua-footer-social {
+			background: #333;
+			-moz-border-radius:  0 0 10px 10px;
+			-webkit-border-radius: 0 0 10px 10px;
+			border-radius: 0 0 10px 10px;
+			padding: 5px;
+			width: 237px;
+		}
+		#sua-footer-right h3 {
+			background: #333;
+			-moz-border-radius: 10px 10px 0 0;
+			-webkit-border-top-left-radius: 10px;
+			-webkit-border-top-right-radius: 10px;
+			border-radius: 10px 10px 0 0;
+			color: #ffde7a;
+			font-family: "Lucida Grande", "Lucida Sans", Lucida, Tahoma, Verdana, Arial, Helvetica, FreeSans, sans-serif;
+			height: 20px;
+			margin: 0 auto;
+		}
+		#sua-footer-social ul {
+			list-style-type: none;
+			margin: 0;
+		}
+		#sua-footer-social ul li {
+			background: url(sua/images/head-foot-new.png) no-repeat;
+			float: left;
+			height: 48px;
+			margin: 5px;
+			width: 48px;
+		}
+		#sua-footer-social ul li#sua_facebook	{ background-position: -403px -56px; }
+		#sua-footer-social ul li#sua_twitter {
+			background-color: #ddd;
+			background-position: -452px -56px;
+			border: 1px solid #aaa;
+			border-radius: 5px;
+			box-shadow: 1px 1px 1px #000;
+			height: 44px;
+			width: 44px;
+		}
+		#sua-footer-social ul li#sua_twitter:hover {
+			background-color: #fff;
+
+		}
+		#sua-footer-social ul li#sua_yt			{ background-position: -502px -56px; }
+		#sua-footer-social ul li#sua-pinterest	{ background-position: -455px -104px; }
+
+		#sua-footer-social ul li#sua_facebook:hover	{ background-position: -403px -6px;  }
+		#sua-footer-social ul li#sua_twitter:hover	{ background-position: -452px -6px; }
+		#sua-footer-social ul li#sua_yt:hover		{ background-position: -502px -6px; }
+		#sua-footer-social ul li#sua-pinterest:hover	{ background-position: -406px -104px; }
+
+		#sua-footer-social ul li a {
+			background-position: center center;
+			background-repeat: no-repeat;
+			display: block;
+			height: 48px;
+			opacity: 0.8;
+			text-indent: -999em;
+			width: 48px;
+		}
+
+/* Patch up UofM Footer */
+#umnhf-f .umnhf h2 {
+    color: white;
+}
+
+/* Accessible and hide classes */
+a.accessible, a.hide {
+	left: 0 !important;
+	text-indent: -9999px !important;
+	top:0 !important;
+}
+/* changed height & width to 1px based on recommendations found here: http://webaim.org/techniques/css/invisiblecontent/ --thoma127 */
+.accessible, .hide {
+	height: 1px !important;
+	left: -9999px !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	top: -9999px !important;
+	width: 1px !important;
+}
+
