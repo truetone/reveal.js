@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <title>SASS (Syntastically Awesome Style Sheets)</title>
         <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
         <meta name="author" content="Hakim El Hattab">
@@ -9,8 +11,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/reveal.min.css">
         <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.min.css">
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="lib/css/github.css">
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -32,15 +34,12 @@
                 <section>
                     <h2>SASS is A CSS Preprocessor</h2>
                     <p>It prepares your styles for output as CSS.
-                    <p>This:
                     <pre><code>.fancy {
     border: 1px solid blue;
     &.highlight {
             background: yellow;
     }
 }</code></pre>
-
-                    <p>Generates this:
 
                     <pre><code data-trim>
 .fancy {
@@ -101,7 +100,7 @@
                         <ul>
                             <li>style.css: 43,362 bytes</li>
                             <li>style.min.css: 27,823 bytes</li>
-                            <li class="fragment">64% smaller!</li>
+                            <li class="fragment">36% smaller!</li>
                             <li class="fragment">Your first step toward a
                                 <a href="http://www.slideshare.net/klayon/umn012513">Minimum
                                     Viable Mobile User Experience</a>
@@ -110,6 +109,7 @@
                     </section>
                     <section>
                         <h2><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style">More Output Styles</a></h2>
+                        <pre><code class="bash">sass --update styles.scss:styles.min.css <strong>--style nested</strong></code></pre>
                         <pre><code>/* nested (default) */
 #main {
   color: #fff;
@@ -120,6 +120,7 @@
                     <section>
                         <h2><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style">More Output Styles</a></h2>
 
+                        <pre><code class="bash">sass --update styles.scss:styles.min.css <strong>--style expanded</strong></code></pre>
                         <pre><code>/* expanded */
 #main {
   color: #fff;
@@ -131,6 +132,7 @@
                     </section>
                     <section>
                         <h2><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style">More Output Styles</a></h2>
+                        <pre><code class="bash">sass --update styles.scss:styles.min.css <strong>--style compact</strong></code></pre>
                         <pre><code>/* compact */
 
 #main { color: #fff; background-color: #000; }
@@ -138,6 +140,7 @@
                     </section>
                     <section>
                         <h2><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style">More Output Styles</a></h2>
+                        <pre><code class="bash">sass --update styles.scss:styles.min.css <strong>--style compressed</strong></code></pre>
                         <pre><code>/* compressed */
 
 #main{color:#fff;background-color:#000}#main p{width:10em}</code></pre>
@@ -177,57 +180,227 @@ $width: 960 - ($default-margin * 2);</code></pre>
                 <section>
                     <h2>SASS Nesting</h2>
                     <p>Styles nested within styles will apply to child elements.
-                    <pre><code class="scss">/* Parent element */
-.parent {
+                    <pre><code class="scss">.parent {
+    /* Parent styles */
     color: red;
 
-    /* Child element */
     .child {
+        /* Child styles */
         color: blue;
-    }
-}</code></pre>
-                <pre><code class="css">/* Generated styles */
-.parent {
-    color: red;
-}
-.parent .child {
-    color: blue;
-}</code></pre>
-                </section>
-                <section>
-                    <h2>Parent Selectors</h2>
-                    <pre><code class="scss">/* Reference the parent selector */
-.parent {
-    color: red;
-    &:hover {
-        background: #ccc;
     }
 }</code></pre>
                     <pre><code class="css">/* Generated styles */
 .parent {
-    color: red;
+  /* Parent styles */
+  color: red;
 }
-.parent:hover {
-    background: #ccc;
+.parent .child {
+  /* Child styles */
+  color: blue;
 }</code></pre>
                 </section>
                 <section>
-                    <h2><a href="http://bourbon.io">Bourbon</a></h2>
+                    <h2>Parent Selectors</h2>
+                    <pre><code class="scss">.parent {
+    /* Parent styles */
+    color: red;
+
+    /* Use &amp; to reference the parent selector */
+    &:hover {
+        background: green;
+    }
+}</code></pre>
+                <pre><code class="css">.parent {
+  /* Parent styles */
+  color: red;
+}
+.parent:hover {
+  background: green;
+}</code></pre>
                 </section>
                 <section>
-                    <h2>Installing Bourbon</h2>
+                    <section>
+                        <h2>Variables (<code>$</code>)</h2>
+                        <pre><code class="scss">/* Define colors in one place */
+$beige: blanchedalmond;
+$dark-blue: #483D8B;
+
+body {
+    background: $beige;
+    color: $dark-blue;
+}</code></pre>
+                    <pre><code class="css">body {
+  background: blanchedalmond;
+  color: #483D8B;
+}</code></pre>
+                    </section>
+                    <section>
+                        <h2>Variables: fonts</h2>
+                        <pre><code class="scss">/* Define your font stack */
+$fonts: Arial, Helvetica, sans-serif;
+$monospace: "Source Code Pro", monospace;
+
+body {
+    font: 100% $fonts;
+}
+pre {
+    font-family: $monospace;
+}</code></pre>
+                        <pre><code class="css">body {
+  font: 100% Arial, Helvetica, sans-serif;
+}
+
+pre {
+  font-family: "Source Code Pro", monospace;
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <h2>Variables: math</h2>
+                        <pre><code class="scss">$overall-width: 960px;
+$overall-height: 600px;
+$main-content-width: $overall-height / $overall-width * 100%;
+$meta-content-width: ($overall-height / 2) / $overall-width * 100%;
+
+.main {
+    width: $main-content-width;
+}
+.meta {
+    width: $meta-content-width;
+}</code></pre>
+
+                        <pre><code class="css">.main {
+  width: 62.5%;
+}
+
+.meta {
+  width: 31.25%;
+}</code></pre>
+
+                    </section>
+                    <section>
+                        <h2>More Features</h2>
+                        <ul>
+                            <li><a href="http://thesassway.com/intermediate/if-for-each-while">Control directives</a> 
+                                (<code>@if</code>, <code>@for</code>, 
+                                <code>@each</code> &amp; <code>@while</code>)</li>
+                            <li><a href="http://hugogiraudel.com/2013/07/15/understanding-sass-lists/">Lists</a></li>
+                            <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">And more</a>!</li>
+                        </ul>
+                    </section>
                 </section>
                 <section>
-                    <h2>Using Bourbon</a></h2>
+                    <section>
+                        <h2><a class="hide-text" href="http://bourbon.io">Bourbon</a><img src="images/bourbon-logo.png" alt="Bourbon logo."></h2>
+                        <p>Never look up another vendor prefix.
+                        <p>
+                    </section>
+                    <section>
+                        <h2>Installing Bourbon</h2>
+                        <pre><code class="bash">gem install bourbon</code></pre>
+                        <pre><code class="bash">bourbon install --path my/custom/path</code></pre>
+                    </section>
+                    <section>
+                        <h2>Using Bourbon</a></h2>
+                        <pre><code class="scss">/* Import the mixins */
+@import 'bourbon/bourbon';
+
+.gradient-example {
+    /* Include the mixin in your styles */
+    @include linear-gradient(#1e5799, #2989d8);
+}</code></pre>
+                        <pre><code class="css">/* Get delicious CSS */
+.gradient-example {
+    background-color: #1e5799;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1e5799), color-stop(100%, #2989d8));
+    background-image: -webkit-linear-gradient(top, #1e5799, #2989d8);
+    background-image: -moz-linear-gradient(top, #1e5799, #2989d8);
+    background-image: -ms-linear-gradient(top, #1e5799, #2989d8);
+    background-image: -o-linear-gradient(top, #1e5799, #2989d8);
+    background-image: linear-gradient(top, #1e5799, #2989d8);
+}</code></pre>
+                    </section>
                 </section>
                 <section>
-                    <h2><a href="http://bourbon.io">Bourbon</a></h2>
-                </section>
-                <section>
-                    <h2>Installing Neat</h2>
-                </section>
-                <section>
-                    <h2>Using Neat</a></h2>
+                    <section>
+                        <h2><a class="hide-text" href="http://neat.bourbon.io/">Neat</a><img src="images/neat-logo.svg" alt="Neat logo."></h2>
+                        <p>A semantic grid framework.
+                    </section>
+                    <section>
+                        <h2>Installing Neat</h2>
+                        <p>Install it on your computer:
+                        <pre><code>gem install neat</code></pre>
+                        <p>Install it in your project:
+                        <pre><code>bourbon install #If not installed
+neat install</code></pre>
+                    </section>
+                    <section>
+                        <h2>Using Neat: breakpoints</a></h2>
+						<pre><code class="scss">/* Import neat */
+@import "../css/bourbon/bourbon"; /* Bourbon first. */
+@import "../css/neat/neat";
+
+/* Define breakpoints */
+$mobile: new-breakpoint(max-width 960px 1);
+
+.main {
+    @include media($mobile) {
+        float: none;
+        width: 100%;
+    }
+}</code></pre>
+					<pre><code class="css">@media screen and (max-width: 960px) {
+  .main {
+    float: none;
+    width: 100%;
+  }
+}</code></pre>
+                    </section>
+					<section>
+						<h2>Using Neat: set up grids</h2>
+						<pre><code>$column: 90px;
+$gutter: 30px;
+$grid-columns: 10;
+$max-width: em(1088);
+
+section {
+    @include outer-container;
+    width: 66%;
+}
+
+article {
+    @include span-columns(6);
+}</code></pre>
+					</section>
+					<section>
+						<h2>Using Neat: set up grids</h2>
+						<pre><code class="css">section {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 66%;
+}
+
+article {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Using Neat: set up grids</h2>
+						<pre><code>aside {
+    @include span-columns(4);
+}</code></pre>
+						<pre><code>aside {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}</code></pre>
+					</section>
                 </section>
             </div>
 

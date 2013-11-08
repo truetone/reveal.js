@@ -1,0 +1,23 @@
+@import "../css/bourbon/bourbon";
+@import "../css/neat/neat";
+
+// Breakpoints
+$mobile: new-breakpoint(max-width 960px 1);
+
+section {
+    @include outer-container;
+    width: 66%;
+
+    @include media($mobile) {
+        float: none;
+        width: 100%;
+    }
+}
+
+article {
+    @include span-columns(6);
+}
+
+aside {
+    @include span-columns(4);
+}

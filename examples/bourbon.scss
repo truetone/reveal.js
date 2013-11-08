@@ -1,0 +1,6 @@
+@import '../css/bourbon/bourbon';
+
+
+.gradient-example {
+	@include linear-gradient(#1e5799, #2989d8);
+}

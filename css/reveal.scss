@@ -1,3 +1,4 @@
+@import 'bourbon/bourbon';
 @charset "UTF-8";
 
 /*! reveal.js
@@ -80,6 +81,7 @@ body {
 		hyphens: auto;
 		word-wrap: break-word;
 		line-height: 1;
+        margin-bottom: .2em;
 	}
 	h1 {
 		font-size: 3.77em;
@@ -188,6 +190,7 @@ body {
 		z-index: 1;
 	}
 	img, video, iframe {
+        border: none;
 		max-width: 95%;
 		max-height: 95%;
 	}
@@ -1099,6 +1102,10 @@ body {
 }
 
 .reveal {
+    section img {
+        border: none;
+        box-shadow: none;
+    }
 	.no-transition {
 		-webkit-transition: none !important;
 		-moz-transition: none !important;
@@ -1555,4 +1562,8 @@ body {
 			visibility: hidden;
 		}
 	}
+}
+.hide-text,
+a.hide-text {
+    @include hide-text;
 }
