@@ -417,6 +417,79 @@ article {
 }</code></pre>
 					</section>
                 </section>
+
+<section>
+    <section>
+        <h2><a class="hide-text" href="http://compass-style.org">Compass</a><img src="images/compass-logo.png" alt="Compass logo."></h2>
+        <p>[Insert Description Here]</p>
+    </section>
+    <section>
+        <h2>Installing Compass</h2>
+        <pre><code class="bash">gem install compass</code></pre>
+        <pre><code class="bash"># Create new project
+compass create path/to/project
+
+# Already existing project
+cd path/to/project
+compass init</code></pre>
+        <pre><code class="bash"># Use compass commands instead of native sass
+compass compile
+
+# Watch for changes
+compass watch</code></pre>
+    </section>
+    <section>
+        <h2>Using Compass</a></h2>
+        <pre><code class="scss">/* Import the mixins */
+@import 'compass';
+
+img:hover {
+/* Include the mixin in your styles */
+    @include transform(scale(120%, 120%) rotate(30deg));
+}</code></pre>
+<pre><code class="css">/* Get vendor-prefixed CSS3 */
+img:hover {
+    -webkit-transform: scale(150%, 120%) rotate(30deg);
+    -moz-transform: scale(150%, 120%) rotate(30deg);
+    -ms-transform: scale(150%, 120%) rotate(30deg);
+    -o-transform: scale(150%, 120%) rotate(30deg);
+    transform: scale(150%, 120%) rotate(30deg);
+}</code></pre>
+    </section>
+    <section>
+        <h2>Compass Does Sprites</h2>
+        <p>Feed compass your individual image files and let it give you a generated sprite with a ready-to-use stylesheet</p>
+    </section>
+    <section>
+        <pre><code class="bash"># Compass is picky about paths
+images/icons/facebook.png               images/icons/twitter.png
+images/icons/facebook_hover.png         images/icons/twitter_hover.png</code></pre>
+<pre><code class="bash"># Generate stylesheet
+compass sprite "images/icons/*.png"
+    # creates sass/sprites/_icons.scss</code></pre>
+<pre><code class="scss">/* import into your styles */
+@import "sprites/icons";
+@include all-icons-sprites();</code></pre>
+<pre><code class="css">/* Generated styles */
+.icons-sprite, .icons-facebook, .icons-twitter {
+  background: url('/images/icons-s35d7438fab.png') no-repeat;
+}
+.icons-facebook {
+  background-position: 0 -192px;
+}</code></pre>
+<pre><code class="html">&lt;-- Use the generated classes in your markup --&gt;
+&lt;div class="icons-facebook"&gt;&lt;/div&gt;
+&lt;div class="icons-twitter"&gt;&lt;/div&gt;</code></pre>
+    </section>
+    <section>
+        <h2>Compass Is Configurable &amp; Extensible</h2>
+
+    </section>
+    <section><h2>Compass has terrible documentation</h2></section>
+</section>
+
+
+
             </div>
 
         </div>
