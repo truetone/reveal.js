@@ -1,0 +1,156 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$icons-sprite-base-class: ".icons-sprite" !default;
+$icons-sprite-dimensions: false !default;
+$icons-position: 0% !default;
+$icons-spacing: 0 !default;
+$icons-repeat: no-repeat !default;
+$icons-prefix: '' !default;
+$icons-clean-up: true !default;
+$icons-layout:vertical !default;
+$icons-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $icons-facebook-position: $icons-position !default;
+   $icons-facebook-spacing:  $icons-spacing !default;
+   $icons-facebook-repeat:   $icons-repeat !default;
+ 
+   $icons-facebook_hover-position: $icons-position !default;
+   $icons-facebook_hover-spacing:  $icons-spacing !default;
+   $icons-facebook_hover-repeat:   $icons-repeat !default;
+ 
+   $icons-instagram-position: $icons-position !default;
+   $icons-instagram-spacing:  $icons-spacing !default;
+   $icons-instagram-repeat:   $icons-repeat !default;
+ 
+   $icons-instagram_hover-position: $icons-position !default;
+   $icons-instagram_hover-spacing:  $icons-spacing !default;
+   $icons-instagram_hover-repeat:   $icons-repeat !default;
+ 
+   $icons-pinterest-position: $icons-position !default;
+   $icons-pinterest-spacing:  $icons-spacing !default;
+   $icons-pinterest-repeat:   $icons-repeat !default;
+ 
+   $icons-pinterest_hover-position: $icons-position !default;
+   $icons-pinterest_hover-spacing:  $icons-spacing !default;
+   $icons-pinterest_hover-repeat:   $icons-repeat !default;
+ 
+   $icons-twitter-position: $icons-position !default;
+   $icons-twitter-spacing:  $icons-spacing !default;
+   $icons-twitter-repeat:   $icons-repeat !default;
+ 
+   $icons-twitter_hover-position: $icons-position !default;
+   $icons-twitter_hover-spacing:  $icons-spacing !default;
+   $icons-twitter_hover-repeat:   $icons-repeat !default;
+ 
+   $icons-youtube-position: $icons-position !default;
+   $icons-youtube-spacing:  $icons-spacing !default;
+   $icons-youtube-repeat:   $icons-repeat !default;
+ 
+   $icons-youtube_hover-position: $icons-position !default;
+   $icons-youtube_hover-spacing:  $icons-spacing !default;
+   $icons-youtube_hover-repeat:   $icons-repeat !default;
+ 
+
+ $icons-sprites: sprite-map("icons/*.png",
+ 
+   $icons-facebook-position: $icons-facebook-position, 
+   $icons-facebook-spacing:  $icons-facebook-spacing, 
+   $icons-facebook-repeat:   $icons-facebook-repeat,
+ 
+   $icons-facebook_hover-position: $icons-facebook_hover-position, 
+   $icons-facebook_hover-spacing:  $icons-facebook_hover-spacing, 
+   $icons-facebook_hover-repeat:   $icons-facebook_hover-repeat,
+ 
+   $icons-instagram-position: $icons-instagram-position, 
+   $icons-instagram-spacing:  $icons-instagram-spacing, 
+   $icons-instagram-repeat:   $icons-instagram-repeat,
+ 
+   $icons-instagram_hover-position: $icons-instagram_hover-position, 
+   $icons-instagram_hover-spacing:  $icons-instagram_hover-spacing, 
+   $icons-instagram_hover-repeat:   $icons-instagram_hover-repeat,
+ 
+   $icons-pinterest-position: $icons-pinterest-position, 
+   $icons-pinterest-spacing:  $icons-pinterest-spacing, 
+   $icons-pinterest-repeat:   $icons-pinterest-repeat,
+ 
+   $icons-pinterest_hover-position: $icons-pinterest_hover-position, 
+   $icons-pinterest_hover-spacing:  $icons-pinterest_hover-spacing, 
+   $icons-pinterest_hover-repeat:   $icons-pinterest_hover-repeat,
+ 
+   $icons-twitter-position: $icons-twitter-position, 
+   $icons-twitter-spacing:  $icons-twitter-spacing, 
+   $icons-twitter-repeat:   $icons-twitter-repeat,
+ 
+   $icons-twitter_hover-position: $icons-twitter_hover-position, 
+   $icons-twitter_hover-spacing:  $icons-twitter_hover-spacing, 
+   $icons-twitter_hover-repeat:   $icons-twitter_hover-repeat,
+ 
+   $icons-youtube-position: $icons-youtube-position, 
+   $icons-youtube-spacing:  $icons-youtube-spacing, 
+   $icons-youtube-repeat:   $icons-youtube-repeat,
+ 
+   $icons-youtube_hover-position: $icons-youtube_hover-position, 
+   $icons-youtube_hover-spacing:  $icons-youtube_hover-spacing, 
+   $icons-youtube_hover-repeat:   $icons-youtube_hover-repeat,
+ 
+ $layout: $icons-layout,
+ $cleanup: $icons-clean-up
+ );
+
+
+// All sprites should extend this class
+// The icons-sprite mixin will do so for you.
+@if $icons-inline {
+  #{$icons-sprite-base-class} {
+    background-image: inline-sprite($icons-sprites);
+  } 
+} @else {
+  #{$icons-sprite-base-class} {
+    background: $icons-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function icons-sprite-width($name) {
+    $file: sprite_file($icons-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function icons-sprite-height($name) {
+    $file: sprite_file($icons-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin icons-sprite-dimensions($name) {
+  @include sprite-dimensions($icons-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin icons-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($icons-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin icons-sprite($name, $dimensions: $icons-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$icons-sprite-base-class};
+  @include sprite($icons-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin icons-sprites($sprite-names, $dimensions: $icons-sprite-dimensions, $prefix: sprite-map-name($icons-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($icons-sprites, $sprite-names, $icons-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-icons-sprites($dimensions: $icons-sprite-dimensions, $prefix: sprite-map-name($icons-sprites), $offset-x: 0, $offset-y: 0) {
+  @include icons-sprites(facebook facebook_hover instagram instagram_hover pinterest pinterest_hover twitter twitter_hover youtube youtube_hover, $dimensions, $prefix, $offset-x, $offset-y);
+}
