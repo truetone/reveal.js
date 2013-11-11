@@ -186,6 +186,35 @@
 }</code></pre>
                 </section>
                 <section>
+                    <h2>Media Queries</h2>
+                    <p>Media queries can be nested</p>
+                    <pre><code class="scss">.container {
+    /* Let's do this mobile first */
+    width: 100%;
+
+    @media screen and (min-width: 600px) {
+        /* Give it a little room to breathe */
+        width: 500px;
+        margin: 0 auto;
+    }
+}</code></pre>
+
+<pre><code class="css">/* Generated styles */
+.container {
+    width: 100%;
+}
+@media screen and (min-width: 600px) {
+    .container {
+        width: 500px;
+        margin: 0 auto;
+    }
+}</code></pre>
+
+
+
+
+                </section>
+                <section>
                     <h2>Parent Selectors</h2>
                     <pre><code class="scss">.parent {
     /* Parent styles */
