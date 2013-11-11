@@ -372,7 +372,7 @@ $mobile: new-breakpoint(max-width 960px 1);
 }</code></pre>
                     </section>
 					<section>
-						<h2>Using Neat: set up grids</h2>
+						<h2>Using Neat: grids</h2>
 						<pre><code>$column: 90px;
 $gutter: 30px;
 $grid-columns: 10;
@@ -380,7 +380,6 @@ $max-width: em(1088);
 
 section {
     @include outer-container;
-    width: 66%;
 }
 
 article {
@@ -388,13 +387,12 @@ article {
 }</code></pre>
 					</section>
 					<section>
-						<h2>Using Neat: set up grids</h2>
+						<h2>Using Neat: grids</h2>
 						<pre><code class="css">section {
   *zoom: 1;
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  width: 66%;
 }
 
 article {
@@ -402,10 +400,11 @@ article {
   float: left;
   margin-right: 2.35765%;
   width: 48.82117%;
-}</code></pre>
+}
+</code></pre>
 					</section>
 					<section>
-						<h2>Using Neat: set up grids</h2>
+						<h2>Using Neat: grids</h2>
 						<pre><code>aside {
     @include span-columns(4);
 }</code></pre>
@@ -415,6 +414,7 @@ article {
   margin-right: 2.35765%;
   width: 31.76157%;
 }</code></pre>
+					<p><a href="examples/grid.html">See the outcome here</a>.
 					</section>
                 </section>
 
