@@ -1,0 +1,38 @@
+$beige: blanchedalmond;
+$dark-blue: #483D8B;
+
+$fonts: Arial, Helvetica, sans-serif;
+$monospace: "Source Code Pro", monospace;
+
+$overall-width: 960px;
+$overall-height: 600px;
+$main-content-width: $overall-height / $overall-width * 100%;
+$meta-content-width: ($overall-height / 2) / $overall-width * 100%;
+
+body {
+    background: $beige;
+    color: $dark-blue;
+    font: 100% $fonts;
+}
+pre {
+    font-family: $monospace;
+}
+.parent {
+    /* Parent styles */
+    color: red;
+
+    .child {
+        /* Child styles */
+        color: blue;
+    }
+    &:hover {
+        /* Use & to reference the parent selector */
+        background: green;
+    }
+}
+.main {
+    width: $main-content-width;
+}
+.meta {
+    width: $meta-content-width;
+}
