@@ -63,7 +63,9 @@ aside:last-child {
   margin-right: 2.84259%;
   width: 7.44167%;
   background: lightgreen;
+  margin-top: 15px;
   min-height: 25px;
+  text-align: center;
 }
 .col:last-child {
   margin-right: 0;
