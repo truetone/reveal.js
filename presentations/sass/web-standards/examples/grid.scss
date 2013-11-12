@@ -17,6 +17,10 @@ article, aside {
 	background: lightgrey;
 }
 
+h1, h2 {
+	margin-left: 30px;
+}
+
 section {
     @include outer-container;
 	border: 1px solid darkgrey;
