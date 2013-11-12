@@ -41,7 +41,7 @@ aside {
 .col {
     @include span-columns(1);
     background: lightgreen;
-    margin-top: 15px;
+    padding-top: 15px;
     min-height: 25px;
     text-align: center;
 }
