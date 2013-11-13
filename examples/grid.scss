@@ -10,16 +10,20 @@ $max-width: em(1088);
 $mobile: new-breakpoint(max-width 960px 1);
 
 body {
-	margin: 2em;
+    margin: 2em;
 }
 
 article, aside {
-	background: lightgrey;
+    background: lightgrey;
+}
+
+h1, h2 {
+    margin-left: 30px;
 }
 
 section {
     @include outer-container;
-	border: 1px solid darkgrey;
+    border: 1px solid darkgrey;
     @include media($mobile) {
         float: none;
         width: 100%;
@@ -36,6 +40,8 @@ aside {
 
 .col {
     @include span-columns(1);
-	background: lightgreen;
-	min-height: 25px;
+    background: lightgreen;
+    padding-top: 15px;
+    min-height: 25px;
+    text-align: center;
 }
