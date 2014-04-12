@@ -295,6 +295,26 @@ $meta-content-width: ($overall-height / 2) / $overall-width * 100%;
 
                     </section>
                     <section>
+                        <h2>Control Directives</h2>
+                        <pre><code class="scss">$section-colors: #2e500b, #0a4b4b, #640e3f;
+
+@for $i from 1 through 3 {
+    #id#{$i} {
+        background-color: nth($section-colors, $i);
+    }
+}
+                        </code></pre><pre><code>#id1 {
+    background-color: #2e500b;
+}
+#id2 {
+    background-color: #0a4b4b;
+}
+#id3 {
+    background-color: #640e3f;
+}
+</code></pre>
+                    </section>
+                    <section>
                         <h2>More Features</h2>
                         <ul>
                             <li><a href="http://thesassway.com/intermediate/if-for-each-while">Control directives</a>
@@ -495,6 +515,7 @@ compass sprite "images/icons/*.png"
 		<li><a href="http://bourbon.io/">Bourbon</a></li>
 		<li><a href="http://neat.bourbon.io/">Neat</a></li>
 		<li><a href="http://compass-style.org/">Compass</a></li>
+		<li><a href="http://www.sitepoint.com/architecture-sass-project/">Architecture for a Sass Project</a></li>
 	</ul>
 </section>
 
