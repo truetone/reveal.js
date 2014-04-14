@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <title>SASS (Syntastically Awesome Style Sheets)</title>
+        <title>The Hitchhiker's Guide to SASS</title>
         <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
         <meta name="author" content="Hakim El Hattab">
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -28,9 +28,9 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>SASS</h1>
-                    <h2>Syntactically Awesome Style Sheets</h2>
-					<p><a href="http://z.umn.edu/sassws">z.umn.edu/sassws</a>
+                    <h1>The Hitchhiker's Guide to SASS</h1>
+                    <p>(Syntactically Awesome Style Sheets)</p>
+                    <p><a href="http://z.umn.edu/sassws">z.umn.edu/sassws</a>
                 </section>
                 <section>
                     <h2>SASS is A CSS Preprocessor</h2>
@@ -56,10 +56,11 @@
                 <section>
                     <h2>Why SASS?</h2>
                     <ol>
+                        <li class="fragment">Not entirely unlike CSS</li>
                         <li class="fragment">More organized code</li>
                         <li class="fragment">Variables (<code class="css">$maroon: #7a0019</code>)</li>
                         <li class="fragment">Control structures (<code>if...then</code>)</li>
-                        <li class="fragment">Loops (<code>for $i from 1 through 4</code>)</li>
+                        <li class="fragment">Loops (<code>for $i from 1 through 42</code>)</li>
                         <li class="fragment">Mixins! (<a href="http://compass-style.org/">Compass</a>, <a href="http://bourbon.io/">Bourbon</a>, <a href="http://neat.bourbon.io/">Neat</a>)</li>
                     </ol>
                 </section>
@@ -72,24 +73,39 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Install SASS</h2>
-                    <h3>Windows</h3>
-                    <pre><code>gem install sass</code></pre>
-                    <h3>Linux & OS X</h3>
-                    <pre><code class="bash">sudo gem install sass</code></pre>
-                    <h4>Check</h4>
-                    <pre><code>sass -v</code></pre>
+                    <section>
+                        <h2>Install SASS</h2>
+                        <h3>Windows</h3>
+                        <pre><code>gem install sass</code></pre>
+                        <h3>Linux &amp; OS X</h3>
+                        <pre><code class="bash">sudo gem install sass</code></pre>
+                        <h4>Check</h4>
+                        <pre><code>sass -v</code></pre>
+                    </section>
+                    <section>
+                        <h2>Need to Upgrade? Don't Panic!</h2>
+                        <pre><code>gem update sass</code></pre>
+                        <h3>How to know if an update is available?</h3>
+                        <pre><code># Check the version of all installed gems
+gem list
+
+# List gems with a more recent version available
+gem outdated
+
+# Install a specific version of a gem
+gem install sass -v 3.3.1</code></pre>
+                    </section>
                 </section>
                 <section>
                     <section>
                         <h2>Convert Existing CSS</h2>
-                        <h3>The Easy Way</h3>
+                        <h3>The Harmless Way</h3>
                         <p>Valid CSS is valid SCSS.
                         <pre><code class="bash">cp styles.css styles.scss</code></pre>
                     </section>
                     <section>
                         <h2>Converting Existing CSS</h2>
-                        <h3>The Slightly Harder Way</h3>
+                        <h3>The Mostly Harmless Way</h3>
                         <pre><code class="bash">sass-convert styles.css styles.scss</code></pre>
                     </section>
                     <section>
@@ -216,8 +232,9 @@
 
                 </section>
                 <section>
-                    <h2>Parent Selectors</h2>
-                    <pre><code class="scss">.parent {
+                    <section>
+                        <h2>Parent Selectors</h2>
+                        <pre><code class="scss">.parent {
     /* Parent styles */
     color: red;
 
@@ -226,13 +243,30 @@
         background: green;
     }
 }</code></pre>
-                <pre><code class="css">.parent {
+                    <pre><code class="css">.parent {
   /* Parent styles */
   color: red;
 }
 .parent:hover {
   background: green;
 }</code></pre>
+                    </section>
+                    <section>
+                        <h2>Parent Selector as Prefix (new in 3.3)</h2>
+                        <pre><code class="scss">.button {
+    &-normal {
+        color: green;
+    }
+    &-error {
+        color: red;
+    }
+}</code></pre><pre><code class="css">.button-normal {
+    color: green;
+}
+.button-error {
+    color: red;
+}</code></pre>
+                    </section>
                 </section>
                 <section>
                     <section>
@@ -295,12 +329,52 @@ $meta-content-width: ($overall-height / 2) / $overall-width * 100%;
 
                     </section>
                     <section>
+                        <h2>Control Directives</h2>
+                        <pre><code class="scss">$section-colors: #2e500b, #0a4b4b, #640e3f;
+
+@for $i from 1 through 3 {
+    #id#{$i} {
+        background-color: nth($section-colors, $i);
+    }
+}
+                        </code></pre><pre><code>#id1 {
+    background-color: #2e500b;
+}
+#id2 {
+    background-color: #0a4b4b;
+}
+#id3 {
+    background-color: #640e3f;
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <h2>New to Sass 3.3</h2>
+                        <p>Maps - key/value pairs</p>
+                        <pre><code class="scss">$map: (facebook: #ec3, twitter: #a6f, guide: #042);
+
+@each $site, $color in $map {
+    .link-#{$site}:hover {
+        color: $color;
+    }
+}</code></pre><pre><code class="css">.link-facebook:hover {
+    color: #ec3;
+}
+.link-twitter:hover {
+    color: #a6f;
+}
+.link-guide:hover {
+    color: #042;
+}</code></pre>
+                    </section>
+                    <section>
                         <h2>More Features</h2>
                         <ul>
                             <li><a href="http://thesassway.com/intermediate/if-for-each-while">Control directives</a>
                                 (<code>@if</code>, <code>@for</code>,
                                 <code>@each</code> &amp; <code>@while</code>)</li>
                             <li><a href="http://hugogiraudel.com/2013/07/15/understanding-sass-lists/">Lists</a></li>
+                            <li><a href="http://snugug.com/musings/debugging-sass-source-maps">Source Maps</a> (3.3+)</li>
                             <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">And more</a>!</li>
                         </ul>
                     </section>
@@ -352,7 +426,7 @@ neat install</code></pre>
                     </section>
                     <section>
                         <h2>Using Neat: breakpoints</a></h2>
-						<pre><code class="scss">/* Import neat */
+                        <pre><code class="scss">/* Import neat */
 @import "../css/bourbon/bourbon"; /* Bourbon first. */
 @import "../css/neat/neat";
 
@@ -365,16 +439,16 @@ $mobile: new-breakpoint(max-width 960px 1);
         width: 100%;
     }
 }</code></pre>
-					<pre><code class="css">@media screen and (max-width: 960px) {
+                    <pre><code class="css">@media screen and (max-width: 960px) {
   .main {
     float: none;
     width: 100%;
   }
 }</code></pre>
                     </section>
-					<section>
-						<h2>Using Neat: grids</h2>
-						<pre><code>$column: 90px;
+                    <section>
+                        <h2>Using Neat: grids</h2>
+                        <pre><code>$column: 90px;
 $gutter: 30px;
 $grid-columns: 10;
 $max-width: em(1088);
@@ -386,10 +460,10 @@ section {
 article {
     @include span-columns(6);
 }</code></pre>
-					</section>
-					<section>
-						<h2>Using Neat: grids</h2>
-						<pre><code class="css">section {
+                    </section>
+                    <section>
+                        <h2>Using Neat: grids</h2>
+                        <pre><code class="css">section {
   *zoom: 1;
   max-width: 68em;
   margin-left: auto;
@@ -403,22 +477,36 @@ article {
   width: 48.82117%;
 }
 </code></pre>
-					</section>
-					<section>
-						<h2>Using Neat: grids</h2>
-						<pre><code>aside {
+                    </section>
+                    <section>
+                        <h2>Using Neat: grids</h2>
+                        <pre><code>aside {
     @include span-columns(4);
 }</code></pre>
-						<pre><code>aside {
+                        <pre><code>aside {
   display: block;
   float: left;
   margin-right: 2.35765%;
   width: 31.76157%;
 }</code></pre>
-					<p><a href="examples/grid.html">See the outcome here</a>.
-					</section>
+                    <p><a href="examples/grid.html">See the outcome here</a>.
+                    </section>
                 </section>
-
+    <section>
+        <section>
+            <h2><a class="hide-text" href="http://bitters.bourbon.io/">Bitters</a><img src="images/bitters-logo.svg" alt="Bitters logo."></h2>
+            <p>Scaffold styles, variables and structure for Bourbon projects</p>
+        </section>
+        <section>
+            <h2>Installing Bitters</h2>
+            <p>Install it on your computer:
+            <pre><code>gem install bitters</code></pre>
+            <p>Install it in your project:
+            <pre><code>bourbon install #If not installed
+bitters install</code></pre>
+            <p><a href="http://bitters.bourbon.io/example.html">Example of default styles</a></p>
+        </section>
+    </section>
 <section>
     <section>
         <h2><a class="hide-text" href="http://compass-style.org">Compass</a><img src="images/compass-logo.png" alt="Compass logo."></h2>
@@ -458,8 +546,14 @@ img:hover {
 }</code></pre>
     </section>
     <section>
-        <h2>Compass Does Sprites</h2>
-        <p>Feed compass your individual image files and let it give you a generated sprite with a ready-to-use stylesheet</p>
+        <h2>Helper functions</h2>
+        <ul>
+            <li>Color math (<code>adjust-lightness</code>, <code>adjust-saturation</code>, <code>tint</code>)</li>
+            <li>Base-64 image encoding (<code>inline-image</code>)</li>
+            <li>Read image data (<code>image-width</code>, <code>image-height</code>)</li>
+            <li><code>elements-of-type</code></li>
+            <li>Sprites</li>
+        </ul>
     </section>
     <section>
         <pre><code class="bash"># Compass is picky about paths
@@ -484,24 +578,47 @@ compass sprite "images/icons/*.png"
     </section>
     <section>
         <h2>Compass Is Configurable &amp; Extensible</h2>
+        <p>Sache.in - <a href="http://www.sache.in/">Index for finding useful extensions</a></p>
+    </section>
+    <section>
+        <h2>Susy</h2>
+        <p>A grid framework for Compass</p>
+        <pre><code class="bash">gem install susy
+
+compass create /path/to/project -r susy -u susy</code></pre>
+        <p>Update to config.rb in existing project</p>
+        <pre><code class="ruby">require "susy"</code></pre>
+    </section>
+    <section>
+        <p>Quickly define containers and layout</p>
+        <pre><code class="scss">body { @include container(80em); }
+nav { @include span(25%); }
+</code></pre>
+        <p>Shorthand syntax for grids</p>
+        <pre><code class="scss">// Mostly harmless
+nav { @include span(3 of 12); }
+
+// You might want a towel
+// Span 3 isolated columns in a complex, asymmetrical grid, without gutters
+@include span(isolate 3 at 2 of (1 2 3 4 3 2 1) no-gutters);
+</code></pre>
+    </section>
 
     </section>
-    <section><h2>Compass has terrible documentation</h2></section>
 </section>
 <section>
-	<h2>Links</h2>
-	<ul>
-		<li><a href="http://sass-lang.com/">Sass</a></li>
-		<li><a href="http://bourbon.io/">Bourbon</a></li>
-		<li><a href="http://neat.bourbon.io/">Neat</a></li>
-		<li><a href="http://compass-style.org/">Compass</a></li>
-	</ul>
+    <h2>Links</h2>
+    <ul>
+        <li><a href="http://sass-lang.com/">Sass</a></li>
+        <li><a href="http://bourbon.io/">Bourbon</a></li>
+        <li><a href="http://neat.bourbon.io/">Neat</a></li>
+        <li><a href="http://bitters.bourbon.io/">Bitters</a></li>
+        <li><a href="http://compass-style.org/">Compass</a></li>
+        <li><a href="http://susy.oddbird.net/">Susy</a></li>
+        <li><a href="http://www.sitepoint.com/architecture-sass-project/">Architecture for a Sass Project</a></li>
+    </ul>
 </section>
-
-
-
             </div>
-
         </div>
 
         <script src="lib/js/head.min.js"></script>
